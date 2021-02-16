@@ -1,0 +1,13 @@
+C:\Users\Vlad Rosoiu\Desktop\dotNet\TheBraveHero\TheBraveHero\obj\Debug\netcoreapp3.1\TheBraveHero.csprojAssemblyReference.cache
+C:\Users\Vlad Rosoiu\Desktop\dotNet\TheBraveHero\TheBraveHero\obj\Debug\netcoreapp3.1\TheBraveHero.AssemblyInfoInputs.cache
+C:\Users\Vlad Rosoiu\Desktop\dotNet\TheBraveHero\TheBraveHero\obj\Debug\netcoreapp3.1\TheBraveHero.AssemblyInfo.cs
+C:\Users\Vlad Rosoiu\Desktop\dotNet\TheBraveHero\TheBraveHero\obj\Debug\netcoreapp3.1\TheBraveHero.csproj.CoreCompileInputs.cache
+C:\Users\Vlad Rosoiu\Desktop\dotNet\TheBraveHero\TheBraveHero\bin\Debug\netcoreapp3.1\TheBraveHero.exe
+C:\Users\Vlad Rosoiu\Desktop\dotNet\TheBraveHero\TheBraveHero\bin\Debug\netcoreapp3.1\TheBraveHero.deps.json
+C:\Users\Vlad Rosoiu\Desktop\dotNet\TheBraveHero\TheBraveHero\bin\Debug\netcoreapp3.1\TheBraveHero.runtimeconfig.json
+C:\Users\Vlad Rosoiu\Desktop\dotNet\TheBraveHero\TheBraveHero\bin\Debug\netcoreapp3.1\TheBraveHero.runtimeconfig.dev.json
+C:\Users\Vlad Rosoiu\Desktop\dotNet\TheBraveHero\TheBraveHero\bin\Debug\netcoreapp3.1\TheBraveHero.dll
+C:\Users\Vlad Rosoiu\Desktop\dotNet\TheBraveHero\TheBraveHero\bin\Debug\netcoreapp3.1\TheBraveHero.pdb
+C:\Users\Vlad Rosoiu\Desktop\dotNet\TheBraveHero\TheBraveHero\obj\Debug\netcoreapp3.1\TheBraveHero.dll
+C:\Users\Vlad Rosoiu\Desktop\dotNet\TheBraveHero\TheBraveHero\obj\Debug\netcoreapp3.1\TheBraveHero.pdb
+C:\Users\Vlad Rosoiu\Desktop\dotNet\TheBraveHero\TheBraveHero\obj\Debug\netcoreapp3.1\TheBraveHero.genruntimeconfig.cache
