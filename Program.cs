@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using TheBraveHero.Data;
 using TheBraveHero.Models;
-using TheBraveHero.Models.Characters;
 
 namespace TheBraveHero
 {
@@ -10,7 +8,7 @@ namespace TheBraveHero
     {
         static void Main(string[] args)
         {
-            do 
+            do
             {
                 MagicForest magicForest = new MagicForest(GetCharacters.GetHero(), GetCharacters.GetBeast());
                 magicForest.StartGame();
@@ -21,7 +19,7 @@ namespace TheBraveHero
         {
             Console.WriteLine("Do you want to start another adventure? Yes/No");
             string answer = Console.ReadLine().ToUpper();
-            switch (answer) 
+            switch (answer)
             {
                 case "YES":
                     return true;

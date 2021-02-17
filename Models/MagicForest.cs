@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using TheBraveHero.Models.Abilities;
 using TheBraveHero.Models.Characters;
 
@@ -7,7 +6,7 @@ namespace TheBraveHero.Models
 {
     class MagicForest
     {
-       
+
         private Hero hero;
         private Beast beast;
         private int round = 1;
@@ -23,50 +22,50 @@ namespace TheBraveHero.Models
 
         internal void StartGame()
         {
-            PrintGameIntroduction();            
-            PrintFightIntroduction();          
-            turn = IsHeroFirst();               
-            PrintInitialStats();               
+            PrintGameIntroduction();
+            PrintFightIntroduction();
+            turn = IsHeroFirst();
+            PrintInitialStats();
             Console.WriteLine("Are you ready start the fight?");
-            RetreatFromBattle();               
-            PrintFirstAttacker();              
+            RetreatFromBattle();
+            PrintFirstAttacker();
             while (gameOn && round < 21 && hero.Life > 0 && beast.Life > 0)
             {
                 Console.WriteLine("Round " + round + " starts!");
-                SetHeroAbilities();             
-                int damage = playRound();       
-                PrintRoundStatistics(damage);   
-                ResetHeroAbilities();           
-                turn = !turn;                  
-                round++;                        
+                SetHeroAbilities();
+                int damage = playRound();
+                PrintRoundStatistics(damage);
+                ResetHeroAbilities();
+                turn = !turn;
+                round++;
                 if (round < 21 && hero.Life > 0 && beast.Life > 0)
-                { 
+                {
                     Console.WriteLine("Continue?");
                     RetreatFromBattle();
                 }
             }
             if (hero.Life <= 0)
-            {  
-                PrintDefeat();                  
+            {
+                PrintDefeat();
             }
             else if (beast.Life <= 0)
             {
-                PrintVictory();                
+                PrintVictory();
             }
             else if (round > 20)
             {
-                PrintTie();                   
+                PrintTie();
             }
         }
 
-       
+
         private bool IsHeroFirst()
         {
             if (hero.Speed > beast.Speed)
             {
                 return true;
             }
-            else if (hero.Speed == beast.Speed) 
+            else if (hero.Speed == beast.Speed)
             {
                 return hero.Luck > beast.Luck;
             }
@@ -76,9 +75,9 @@ namespace TheBraveHero.Models
             }
         }
 
-        private void SetHeroAbilities() 
+        private void SetHeroAbilities()
         {
-            foreach (SpecialAbility specialAbility in hero.SpecialAbilities) 
+            foreach (SpecialAbility specialAbility in hero.SpecialAbilities)
             {
                 if (1 + rdm.Next(100) <= specialAbility.ActivationChance)
                 {
@@ -87,20 +86,22 @@ namespace TheBraveHero.Models
             }
         }
 
-        private void ResetHeroAbilities() {
-            foreach (SpecialAbility specialAbility in hero.SpecialAbilities) 
+        private void ResetHeroAbilities()
+        {
+            foreach (SpecialAbility specialAbility in hero.SpecialAbilities)
             {
                 specialAbility.IsActive = false;
             }
         }
 
-        private int InitiateAttack(int strength, int defence) 
+        private int InitiateAttack(int strength, int defence)
         {
             int damage = strength - defence;
-            if (damage > 0 && damage <= 100) 
+            if (damage > 0 && damage <= 100)
             {
                 return damage;
-            }else if (damage > 100)
+            }
+            else if (damage > 100)
             {
                 return 100;
             }
@@ -108,52 +109,55 @@ namespace TheBraveHero.Models
             {
                 return 0;
             }
-        
+
         }
 
-        private bool Defend(int luck) 
+        private bool Defend(int luck)
         {
             return (1 + rdm.Next(100) <= luck);
         }
 
-        private int playRound() 
+        private int playRound()
         {
             int damage;
-            if (turn) 
+            if (turn)
             {
                 Console.WriteLine(hero.Name + " grabs his sword and attacks!");
                 int initialStrength = hero.Strength;
-                foreach (SpecialAbility specialAbility in hero.SpecialAbilities) 
-                { 
-                    if(specialAbility.IsActive && specialAbility.AbilityType.Equals(AbilityType.DAMAGE_INCREASE)) 
+                foreach (SpecialAbility specialAbility in hero.SpecialAbilities)
+                {
+                    if (specialAbility.IsActive && specialAbility.AbilityType.Equals(AbilityType.DAMAGE_INCREASE))
                     {
                         hero.Strength *= 2;
                     }
                 }
-                if(Defend(beast.Luck)) 
+                if (Defend(beast.Luck))
                 {
                     Console.WriteLine(beast.Name + " dodges the attack!");
                     damage = 0;
-                }else
+                }
+                else
                 {
                     damage = InitiateAttack(hero.Strength, beast.Defence);
                 }
                 beast.Life -= damage;
                 hero.Strength = initialStrength;
-            }else
+            }
+            else
             {
                 Console.WriteLine(beast.Name + " rapidly charges our hero and attacks!");
-                if(Defend(hero.Luck))
+                if (Defend(hero.Luck))
                 {
                     damage = 0;
                     Console.WriteLine(hero.Name + " dodges the attacks!");
-                }else
+                }
+                else
                 {
                     damage = InitiateAttack(beast.Strength, hero.Defence);
                 }
-                foreach (SpecialAbility specialAbility in hero.SpecialAbilities) 
+                foreach (SpecialAbility specialAbility in hero.SpecialAbilities)
                 {
-                if(specialAbility.IsActive && specialAbility.AbilityType.Equals(AbilityType.DEFENCE_INCREASE)) 
+                    if (specialAbility.IsActive && specialAbility.AbilityType.Equals(AbilityType.DEFENCE_INCREASE))
                     {
                         damage /= 2;
                     }
@@ -162,7 +166,7 @@ namespace TheBraveHero.Models
             return damage;
         }
 
-        private void RetreatFromBattle() 
+        private void RetreatFromBattle()
         {
             Console.WriteLine("Type YES/NO");
             String answer = Console.ReadLine().ToUpper();
@@ -182,7 +186,7 @@ namespace TheBraveHero.Models
             }
         }
 
-        private void PrintInitialStats() 
+        private void PrintInitialStats()
         {
             Console.WriteLine("\t*** GAME STATS ***");
             Console.WriteLine("# " + hero.Name + "'s life: " + hero.Life);
@@ -232,7 +236,7 @@ namespace TheBraveHero.Models
             Console.WriteLine("Round " + round + " ends!");
         }
 
-        private void PrintFirstAttacker() 
+        private void PrintFirstAttacker()
         {
             if (turn && round == 1 && gameOn)
             {
@@ -244,7 +248,7 @@ namespace TheBraveHero.Models
             }
         }
 
-        private void PrintFightIntroduction () 
+        private void PrintFightIntroduction()
         {
             Console.WriteLine("___________________________________");
             Console.WriteLine("| Welcome to The Brave Hero game! |");
@@ -254,14 +258,14 @@ namespace TheBraveHero.Models
             Console.WriteLine("Which hero will depart into the Magic Forest to fight with unbelievable monsters?");
         }
 
-        private void PrintVictory() 
+        private void PrintVictory()
         {
             Console.WriteLine("***VICTORY!***");
             Console.WriteLine(hero.Name + ", is victorious again!");
             Console.WriteLine("No beast is a match for our brave hero!");
         }
 
-        private void PrintDefeat() 
+        private void PrintDefeat()
         {
             Console.WriteLine("***DEFEAT***");
             Console.WriteLine("Unfortunately the beast was too powerful and " + hero.Name + " flee away in pain.");
@@ -269,7 +273,7 @@ namespace TheBraveHero.Models
             Console.WriteLine("But this adventure is for another day!");
         }
 
-        private void PrintTie() 
+        private void PrintTie()
         {
             Console.WriteLine("***TIE***");
             Console.WriteLine("Seems like this beast is truly a match for " + hero.Name + "!");

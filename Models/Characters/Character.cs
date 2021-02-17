@@ -47,6 +47,6 @@ namespace TheBraveHero.Models.Characters
     {
         public Beast(string beastName, int beastLife, int beastStrength, int beastDefence, int beastSpeed, int beastLuck) :
             base(beastName, beastLife, beastStrength, beastDefence, beastSpeed, beastLuck)
-        {}
+        { }
     }
 }
